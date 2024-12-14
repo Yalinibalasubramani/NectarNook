@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>NectarNook</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="styles.css" rel="stylesheet">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => 
+    {
+      function animateCounter(id, start, end, duration) 
+      {
+        let element = document.getElementById(id);
+        let range = end - start;
+        let increment = end > start ? 1 : -1;
+        let stepTime = Math.abs(Math.floor(duration / range));
+        let current = start;
+        let timer = setInterval(() => 
+        {
+          current += increment;
+          element.textContent = current;
+          if (current == end) 
+          {
+            clearInterval(timer);
+          }
+        }, stepTime);
+      }
+  
+      animateCounter('recipes-counter', 0, 1000, 1000);
+      animateCounter('chefs-counter', 0, 50, 1000);
+      animateCounter('customers-counter', 0, 500, 1000);
+    });
+    document.addEventListener('DOMContentLoaded', function () 
+    {
+        document.querySelectorAll('.nav-tabs .nav-link').forEach(tab => 
+        {
+            tab.addEventListener('click', function (event) 
+            {
+            event.preventDefault();
+
+            document.querySelectorAll('.nav-tabs .nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            this.classList.add('active');
+            document.querySelector(this.getAttribute('href')).classList.add('active');
+            });
+        });
+});
+
+  </script>
+  
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container d-flex justify-content-between align-items-center">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <h1 class="sitename">NectarNook</h1>
+            <span>.</span>
+          </a>
+      
+          <nav id="navmenu" class="navmenu d-flex">
+            <ul class="d-flex m-0 p-0">
+              <li><a href="#hero" class="active">Home<br></a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#menu">Recipes</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+        </div>
+      </header>
+
+  <main class="main">
+    
+        <section id="hero" class="hero section light-background">
+            <div class="container">
+              <div class="row gy-4 align-items-center">
+                <div class="col-lg-6 d-flex justify-content-center">
+                  <img src="https://i.pinimg.com/564x/cb/64/43/cb64436690f133f485eeb74e532a5d93.jpg" class="hero-img img-fluid" alt="Hero Image">
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                  <h1 class="hero-title" data-aos="fade-up">Your Culinary Adventure Starts Here!</h1>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="about" class="about section">
+
+            <div class="container section-title" data-aos="fade-up">
+              <h2>About Us<br></h2>
+            </div>
+      
+            <div class="container">
+      
+              <div class="row gy-4">
+                Welcome to NectarNook, your ultimate destination for delightful, easy-to-make recipes that turn every meal into a celebration. Whether you're a seasoned chef or just stepping into the kitchen, we’re here to inspire and guide you in creating dishes that are as enjoyable to cook as they are to eat.
+                <br><br>
+                At NectarNook, we believe in making cooking fun, accessible, and full of flavor. Our handpicked recipes, from quick dinners to decadent desserts, are designed to bring out the chef in you with simple ingredients and foolproof instructions. Let’s cook up some magic together!
+             </div>
+            </div>
+        </section>
+        <section id="recipe-stats" class="recipe-stats section">
+            <div class="container d-flex justify-content-between">
+              <div class="stats-item text-center">
+                <div class="stats-number">
+                  <span id="recipes-counter" class="counter">0</span>+
+                </div>
+                <p>Recipes</p>
+              </div>
+          
+              <div class="stats-item text-center">
+                <div class="stats-number">
+                  <span id="chefs-counter" class="counter">0</span>+
+                </div>
+                <p>Chefs</p>
+              </div>
+          
+              <div class="stats-item text-center">
+                <div class="stats-number">
+                  <span id="customers-counter" class="counter">0</span>+
+                </div>
+                <p>Happy Customers</p>
+              </div>
+            </div>
+          </section>
+          <section id="menu" class="menu section">
+            <div class="container section-title" data-aos="fade-up">
+              <h2>Our Recipes</h2>
+              <p><span>Check Our</span> <span class="description-title">Yummy Recipes</span></p>
+          
+            <div class="container">
+              <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#menu-breakfast">Breakfast</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#menu-lunch">Lunch</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#menu-dinner">Dinner</a>
+                </li>
+              </ul>
+          
+              <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+                <div id="menu-breakfast" class="tab-pane active">
+                  <div class="tab-header text-center">
+                    <p>Recipes</p>
+                    <h3>Breakfast</h3>
+                  </div>
+                  <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/564x/6c/4a/d3/6c4ad339fc6c72eb17c9ecab461b7da3.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/564x/6c/4a/d3/6c4ad339fc6c72eb17c9ecab461b7da3.jpg" class="menu-img img-fluid" alt="Breakfast Item 1">
+                        <h4>Aloo Paratha</h4>
+                        <p class="ingredients">Flour, Potato and Spices</p>
+                        <p class="cook-time">30 mins</p>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/564x/98/6e/b3/986eb30c91145e9880418c032ba8676d.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/564x/98/6e/b3/986eb30c91145e9880418c032ba8676d.jpg" class="menu-img img-fluid" alt="Breakfast Item 1">
+                        <h4>Appam</h4>
+                        <p class="ingredients">Regular rice, Thick Poha and grated fresh coconut</p>
+                        <p class="cook-time">20 mins</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+          
+                <div id="menu-lunch" class="tab-pane">
+                  <div class="tab-header text-center">
+                    <p>Recipes</p>
+                    <h3>Lunch</h3>
+                  </div>
+                  <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/564x/7c/77/c7/7c77c79eacf442f427c3de03eede3a4b.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/564x/7c/77/c7/7c77c79eacf442f427c3de03eede3a4b.jpg" class="menu-img img-fluid" alt="Lunch Item 1">
+                        <h4>Ghee Rice</h4>
+                        <p class="ingredients">Jeerakasala Rice and Ghee</p>
+                        <p class="cook-time">40 mins</p>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/564x/2a/11/5b/2a115b685d8bf185834ad7c25c47c13d.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/564x/2a/11/5b/2a115b685d8bf185834ad7c25c47c13d.jpg" class="menu-img img-fluid" alt="Lunch Item 1">
+                        <h4>Vegetable Pulao</h4>
+                        <p class="ingredients">Basmati Rice, Vegetables and Ghee</p>
+                        <p class="cook-time">40 mins</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+          
+                <div id="menu-dinner" class="tab-pane">
+                  <div class="tab-header text-center">
+                    <p>Recipes</p>
+                    <h3>Dinner</h3>
+                  </div>
+                  <div class="row gy-5">
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/736x/e8/c4/da/e8c4dadd7dde3ad5e6a4209d7560b54f.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/736x/e8/c4/da/e8c4dadd7dde3ad5e6a4209d7560b54f.jpg" class="menu-img img-fluid" alt="Dinner Item 1">
+                        <h4>Kadhi chawal</h4>
+                        <p class="ingredients">Besan flour, Curd and Others..</p>
+                        <p class="cook-time">45 mins</p>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 menu-item">
+                      <a href="https://i.pinimg.com/564x/36/98/6b/36986b4de2c1e2167993356a470760e9.jpg" class="glightbox">
+                        <img src="https://i.pinimg.com/564x/36/98/6b/36986b4de2c1e2167993356a470760e9.jpg" class="menu-img img-fluid" alt="Dinner Item 1">
+                        <h4>Paniyaram</h4>
+                        <p class="ingredients">Idli batter, Onions and Others..</p>
+                        <p class="cook-time">15 mins</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="show-more-section" class="show-more-section section">
+            <span class="container text-center">
+              <button class="btn btn-primary show-more-btn">Show More Recipes</button>
+            </span>
+          </section>
+<section id="contact" class="contact section">
+    <div class="container">
+        
+      <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+        <h3 style="color: blue;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 30px;">Connect to us</h3>
+        <div class="row gy-4">
+          <div class="col-md-6">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="col-md-12">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="col-md-12">
+            <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="submit">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <footer id="footer" class="footer dark-background">
+   
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">NectarNook</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">
+            Designed by <a href="XXX">XXX</a>
+        </div>
+    </div>
+</footer>
+
+
+          
+ </main>
+ </body>         
